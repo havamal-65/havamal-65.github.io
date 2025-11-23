@@ -92,6 +92,17 @@
             transform: translateY(0);
         }
 
+        .error-message {
+            color: #f5576c;
+            font-size: 0.9rem;
+            margin-top: 8px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
         /* Flashcard Section */
         .flashcard-section {
             display: none;
@@ -290,6 +301,7 @@
 Photosynthesis : The process by which plants convert sunlight into energy
 Mitochondria : The powerhouse of the cell
 DNA : Deoxyribonucleic acid, carries genetic information"></textarea>
+            <div class="error-message" id="errorMessage"></div>
             <button class="btn" onclick="createCards()">Create Flashcards</button>
         </div>
 
@@ -320,9 +332,9 @@ DNA : Deoxyribonucleic acid, carries genetic information"></textarea>
                 <span><span class="key">→</span> Next</span>
             </div>
 
-            <center>
+            <div style="text-align: center;">
                 <button class="back-btn" onclick="goBack()">← Back to Edit</button>
-            </center>
+            </div>
         </div>
     </div>
 
@@ -332,9 +344,16 @@ DNA : Deoxyribonucleic acid, carries genetic information"></textarea>
         let isFlipped = false;
 
         function createCards() {
+            const errorMsg = document.getElementById('errorMessage');
             const input = document.getElementById('cardInput').value.trim();
+            
+            // Clear previous error
+            errorMsg.classList.remove('show');
+            errorMsg.textContent = '';
+            
             if (!input) {
-                alert('Please enter some flashcards!');
+                errorMsg.textContent = 'Please enter some flashcards!';
+                errorMsg.classList.add('show');
                 return;
             }
 
@@ -353,7 +372,8 @@ DNA : Deoxyribonucleic acid, carries genetic information"></textarea>
             }
 
             if (cards.length === 0) {
-                alert('No valid flashcards found. Please use the format: term : definition');
+                errorMsg.textContent = 'No valid flashcards found. Please use the format: term : definition';
+                errorMsg.classList.add('show');
                 return;
             }
 
