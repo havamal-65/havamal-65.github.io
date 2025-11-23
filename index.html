@@ -92,17 +92,6 @@
             transform: translateY(0);
         }
 
-        .error-message {
-            color: #f5576c;
-            font-size: 0.9rem;
-            margin-top: 8px;
-            display: none;
-        }
-
-        .error-message.show {
-            display: block;
-        }
-
         /* Flashcard Section */
         .flashcard-section {
             display: none;
@@ -271,6 +260,265 @@
             transform: rotate(180deg);
         }
 
+        /* Save/Resume buttons */
+        .save-btn {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+            margin-left: 10px;
+            transition: all 0.2s ease;
+        }
+
+        .save-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(17, 153, 142, 0.4);
+        }
+
+        .resume-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .resume-section h3 {
+            color: #333;
+            font-size: 1rem;
+            margin-bottom: 12px;
+        }
+
+        .resume-info {
+            color: #666;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+        }
+
+        .resume-btn {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-right: 10px;
+        }
+
+        .resume-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(17, 153, 142, 0.4);
+        }
+
+        .clear-btn {
+            background: transparent;
+            color: #999;
+            border: 1px solid #ddd;
+            padding: 12px 20px;
+            font-size: 0.85rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .clear-btn:hover {
+            background: #fee;
+            color: #c00;
+            border-color: #fcc;
+        }
+
+        .save-indicator {
+            display: inline-block;
+            color: #38ef7d;
+            font-size: 0.85rem;
+            margin-left: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .save-indicator.show {
+            opacity: 1;
+        }
+
+        /* Deck Manager */
+        .saved-decks-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .saved-decks-section h3 {
+            color: #333;
+            font-size: 1rem;
+            margin-bottom: 12px;
+        }
+
+        .deck-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .deck-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 12px 16px;
+            transition: all 0.2s ease;
+        }
+
+        .deck-item:hover {
+            border-color: #667eea;
+            background: #f0f2ff;
+        }
+
+        .deck-info {
+            flex: 1;
+        }
+
+        .deck-name {
+            font-weight: 600;
+            color: #333;
+            font-size: 0.95rem;
+        }
+
+        .deck-meta {
+            color: #888;
+            font-size: 0.8rem;
+            margin-top: 4px;
+        }
+
+        .deck-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .deck-actions button {
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .load-deck-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+        }
+
+        .load-deck-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .delete-deck-btn {
+            background: transparent;
+            color: #999;
+            border: 1px solid #ddd;
+        }
+
+        .delete-deck-btn:hover {
+            background: #fee;
+            color: #c00;
+            border-color: #fcc;
+        }
+
+        /* Save Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            width: 90%;
+            max-width: 400px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .modal h3 {
+            color: #333;
+            margin-bottom: 16px;
+        }
+
+        .modal input[type="text"] {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            margin-bottom: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .modal input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+
+        .modal-cancel {
+            background: transparent;
+            color: #666;
+            border: 1px solid #ddd;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        .modal-save {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .modal-save:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(17, 153, 142, 0.4);
+        }
+
+        .current-deck-name {
+            color: rgba(255,255,255,0.9);
+            text-align: center;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+        }
+
         /* Responsive */
         @media (max-width: 600px) {
             .card-container {
@@ -301,12 +549,30 @@
 Photosynthesis : The process by which plants convert sunlight into energy
 Mitochondria : The powerhouse of the cell
 DNA : Deoxyribonucleic acid, carries genetic information"></textarea>
-            <div class="error-message" id="errorMessage"></div>
             <button class="btn" onclick="createCards()">Create Flashcards</button>
+
+            <!-- Saved Decks Section -->
+            <div class="saved-decks-section" id="savedDecksSection" style="display: none;">
+                <h3>Your Saved Decks</h3>
+                <div class="deck-list" id="deckList"></div>
+            </div>
+        </div>
+
+        <!-- Save Modal -->
+        <div class="modal-overlay" id="saveModal">
+            <div class="modal">
+                <h3>Save Deck</h3>
+                <input type="text" id="deckNameInput" placeholder="Enter deck name (e.g., Biology, Spanish)">
+                <div class="modal-actions">
+                    <button class="modal-cancel" onclick="closeSaveModal()">Cancel</button>
+                    <button class="modal-save" onclick="confirmSaveDeck()">Save</button>
+                </div>
+            </div>
         </div>
 
         <!-- Flashcard Section -->
         <div class="flashcard-section" id="flashcardSection">
+            <div class="current-deck-name" id="currentDeckName"></div>
             <div class="progress" id="progress">Card 1 of 10</div>
 
             <div class="card-container">
@@ -332,9 +598,11 @@ DNA : Deoxyribonucleic acid, carries genetic information"></textarea>
                 <span><span class="key">→</span> Next</span>
             </div>
 
-            <div style="text-align: center;">
+            <center>
                 <button class="back-btn" onclick="goBack()">← Back to Edit</button>
-            </div>
+                <button class="save-btn" onclick="openSaveModal()">Save Deck</button>
+                <span class="save-indicator" id="saveIndicator">✓ Saved!</span>
+            </center>
         </div>
     </div>
 
@@ -342,18 +610,15 @@ DNA : Deoxyribonucleic acid, carries genetic information"></textarea>
         let cards = [];
         let currentIndex = 0;
         let isFlipped = false;
+        let originalInput = '';
+        let currentDeckName = '';
+
+        const STORAGE_KEY = 'flashcards_decks';
 
         function createCards() {
-            const errorMsg = document.getElementById('errorMessage');
             const input = document.getElementById('cardInput').value.trim();
-            
-            // Clear previous error
-            errorMsg.classList.remove('show');
-            errorMsg.textContent = '';
-            
             if (!input) {
-                errorMsg.textContent = 'Please enter some flashcards!';
-                errorMsg.classList.add('show');
+                alert('Please enter some flashcards!');
                 return;
             }
 
@@ -372,12 +637,13 @@ DNA : Deoxyribonucleic acid, carries genetic information"></textarea>
             }
 
             if (cards.length === 0) {
-                errorMsg.textContent = 'No valid flashcards found. Please use the format: term : definition';
-                errorMsg.classList.add('show');
+                alert('No valid flashcards found. Please use the format: term : definition');
                 return;
             }
 
+            originalInput = input;
             currentIndex = 0;
+            currentDeckName = '';
             isFlipped = false;
             showFlashcardSection();
             updateCard();
@@ -386,11 +652,13 @@ DNA : Deoxyribonucleic acid, carries genetic information"></textarea>
         function showFlashcardSection() {
             document.getElementById('inputSection').style.display = 'none';
             document.getElementById('flashcardSection').classList.add('active');
+            updateDeckNameDisplay();
         }
 
         function goBack() {
             document.getElementById('inputSection').style.display = 'block';
             document.getElementById('flashcardSection').classList.remove('active');
+            renderSavedDecks();
         }
 
         function updateCard() {
@@ -399,13 +667,21 @@ DNA : Deoxyribonucleic acid, carries genetic information"></textarea>
             document.getElementById('cardBack').textContent = card.definition;
             document.getElementById('progress').textContent = `Card ${currentIndex + 1} of ${cards.length}`;
 
-            // Reset flip state
             isFlipped = false;
             document.getElementById('card').classList.remove('flipped');
 
-            // Update navigation buttons
             document.getElementById('prevBtn').disabled = currentIndex === 0;
             document.getElementById('nextBtn').disabled = currentIndex === cards.length - 1;
+        }
+
+        function updateDeckNameDisplay() {
+            const el = document.getElementById('currentDeckName');
+            if (currentDeckName) {
+                el.textContent = currentDeckName;
+                el.style.display = 'block';
+            } else {
+                el.style.display = 'none';
+            }
         }
 
         function flipCard() {
@@ -428,7 +704,6 @@ DNA : Deoxyribonucleic acid, carries genetic information"></textarea>
         }
 
         function shuffleCards() {
-            // Fisher-Yates shuffle
             for (let i = cards.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [cards[i], cards[j]] = [cards[j], cards[i]];
@@ -439,7 +714,15 @@ DNA : Deoxyribonucleic acid, carries genetic information"></textarea>
 
         // Keyboard controls
         document.addEventListener('keydown', (e) => {
-            // Only handle keys when flashcard section is visible
+            if (document.getElementById('saveModal').classList.contains('active')) {
+                if (e.code === 'Escape') {
+                    closeSaveModal();
+                } else if (e.code === 'Enter') {
+                    confirmSaveDeck();
+                }
+                return;
+            }
+
             if (!document.getElementById('flashcardSection').classList.contains('active')) {
                 return;
             }
@@ -459,6 +742,170 @@ DNA : Deoxyribonucleic acid, carries genetic information"></textarea>
                     break;
             }
         });
+
+        // Multi-deck Storage Functions
+        function getAllDecks() {
+            try {
+                const data = localStorage.getItem(STORAGE_KEY);
+                return data ? JSON.parse(data) : {};
+            } catch (e) {
+                console.error('Error reading decks:', e);
+                return {};
+            }
+        }
+
+        function saveAllDecks(decks) {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(decks));
+                return true;
+            } catch (e) {
+                alert('Unable to save. Your browser may not support local storage.');
+                return false;
+            }
+        }
+
+        // Save Modal Functions
+        function openSaveModal() {
+            const modal = document.getElementById('saveModal');
+            const input = document.getElementById('deckNameInput');
+            input.value = currentDeckName || '';
+            modal.classList.add('active');
+            input.focus();
+        }
+
+        function closeSaveModal() {
+            document.getElementById('saveModal').classList.remove('active');
+        }
+
+        function confirmSaveDeck() {
+            const nameInput = document.getElementById('deckNameInput');
+            const name = nameInput.value.trim();
+
+            if (!name) {
+                alert('Please enter a deck name.');
+                nameInput.focus();
+                return;
+            }
+
+            const decks = getAllDecks();
+            decks[name] = {
+                cards: cards,
+                currentIndex: currentIndex,
+                originalInput: originalInput,
+                savedAt: new Date().toISOString()
+            };
+
+            if (saveAllDecks(decks)) {
+                currentDeckName = name;
+                updateDeckNameDisplay();
+                closeSaveModal();
+                showSaveIndicator();
+            }
+        }
+
+        function showSaveIndicator() {
+            const indicator = document.getElementById('saveIndicator');
+            indicator.classList.add('show');
+            setTimeout(() => {
+                indicator.classList.remove('show');
+            }, 2000);
+        }
+
+        function loadDeck(name) {
+            const decks = getAllDecks();
+            const deck = decks[name];
+
+            if (!deck) {
+                alert('Deck not found.');
+                return;
+            }
+
+            cards = deck.cards;
+            currentIndex = deck.currentIndex;
+            originalInput = deck.originalInput;
+            currentDeckName = name;
+            isFlipped = false;
+
+            document.getElementById('cardInput').value = originalInput;
+            showFlashcardSection();
+            updateCard();
+        }
+
+        function deleteDeck(name) {
+            if (!confirm(`Delete "${name}"?`)) {
+                return;
+            }
+
+            const decks = getAllDecks();
+            delete decks[name];
+            saveAllDecks(decks);
+            renderSavedDecks();
+        }
+
+        function renderSavedDecks() {
+            const decks = getAllDecks();
+            const deckNames = Object.keys(decks);
+            const section = document.getElementById('savedDecksSection');
+            const list = document.getElementById('deckList');
+
+            if (deckNames.length === 0) {
+                section.style.display = 'none';
+                return;
+            }
+
+            section.style.display = 'block';
+            list.innerHTML = '';
+
+            deckNames.sort((a, b) => {
+                return new Date(decks[b].savedAt) - new Date(decks[a].savedAt);
+            });
+
+            for (const name of deckNames) {
+                const deck = decks[name];
+                const item = document.createElement('div');
+                item.className = 'deck-item';
+
+                const cardCount = deck.cards.length;
+                const position = deck.currentIndex + 1;
+                const savedDate = new Date(deck.savedAt);
+
+                item.innerHTML = `
+                    <div class="deck-info">
+                        <div class="deck-name">${escapeHtml(name)}</div>
+                        <div class="deck-meta">${cardCount} cards · Position ${position}/${cardCount} · ${formatDate(savedDate)}</div>
+                    </div>
+                    <div class="deck-actions">
+                        <button class="load-deck-btn" onclick="loadDeck('${escapeHtml(name)}')">Load</button>
+                        <button class="delete-deck-btn" onclick="deleteDeck('${escapeHtml(name)}')">Delete</button>
+                    </div>
+                `;
+
+                list.appendChild(item);
+            }
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function formatDate(date) {
+            const now = new Date();
+            const diff = now - date;
+            const minutes = Math.floor(diff / 60000);
+            const hours = Math.floor(diff / 3600000);
+            const days = Math.floor(diff / 86400000);
+
+            if (minutes < 1) return 'just now';
+            if (minutes < 60) return `${minutes}m ago`;
+            if (hours < 24) return `${hours}h ago`;
+            if (days < 7) return `${days}d ago`;
+            return date.toLocaleDateString();
+        }
+
+        // Initialize on page load
+        renderSavedDecks();
     </script>
 </body>
 </html>
